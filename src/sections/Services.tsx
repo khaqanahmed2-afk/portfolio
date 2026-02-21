@@ -2,29 +2,33 @@ import React from 'react';
 import Container from '../components/Container';
 import SectionHeader from '../components/SectionHeader';
 import Card from '../components/Card';
+import { Layout, Cpu, Server } from 'lucide-react';
 
 const Services: React.FC = () => {
     const services = [
         {
             title: 'Custom Web Applications',
-            description: 'Admin dashboards, SaaS platforms, and internal business tools designed for efficiency.',
-            problem: 'Inefficient workflows and fragmented data management.',
-            impact: 'Streamlined operations and centralized data control.',
-            advantage: 'Built with modern frameworks for maximum performance and growth.'
+            icon: <Layout className="w-6 h-6" />,
+            description: 'Scalable admin dashboards, internal business tools, and SaaS platforms engineered for operational excellence.',
+            problem: 'Fragmented data and inefficient manual workflows.',
+            impact: 'Centralized control and streamlined digital operations.',
+            advantage: 'Optimized for high concurrency and long-term scaling.'
         },
         {
-            title: 'Business Automation Systems',
-            description: 'School, retail, and workflow management systems that eliminate manual overhead.',
-            problem: 'High manual error rates and time-consuming repetitive tasks.',
-            impact: 'Reduced operational costs and improved accuracy across departments.',
-            advantage: 'Modular architecture allows for easy feature expansions.'
+            title: 'Business Automation',
+            icon: <Cpu className="w-6 h-6" />,
+            description: 'Intelligent automation systems that eliminate repetitive tasks and minimize human error across your business.',
+            problem: 'High manual overhead and prone to operational errors.',
+            impact: 'Significant cost reduction and 100% process accuracy.',
+            advantage: 'Modular architecture for seamless feature expansion.'
         },
         {
-            title: 'Backend & API Development',
-            description: 'Secure, scalable APIs and database architectures with role-based access control.',
+            title: 'System Architecture',
+            icon: <Server className="w-6 h-6" />,
+            description: 'Robust backend development, API design, and database optimization with a focus on security and reliability.',
             problem: 'Insecure data handling and sluggish system responses.',
-            impact: 'Bank-grade security and lighting-fast data processing.',
-            advantage: 'Optimized PostgreSQL and Node.js backend for high concurrency.'
+            impact: 'Bank-grade security and sub-second data processing.',
+            advantage: 'RBAC-first design and highly optimized PostgreSQL.'
         }
     ];
 
@@ -39,8 +43,12 @@ const Services: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {services.map((service, index) => (
-                        <Card key={index} className="flex flex-col h-full">
-                            <h3 className="text-xl font-headings font-bold mb-6 text-white group-hover:text-accent-blue transition-colors">
+                        <Card key={index} className="flex flex-col h-full group">
+                            <div className="w-12 h-12 rounded-xl bg-accent-blue/10 flex items-center justify-center text-accent-blue mb-6 group-hover:bg-accent-blue group-hover:text-white transition-all duration-300">
+                                {service.icon}
+                            </div>
+
+                            <h3 className="text-xl font-headings font-bold mb-6 text-white transition-colors">
                                 {service.title}
                             </h3>
 
@@ -50,15 +58,15 @@ const Services: React.FC = () => {
 
                             <div className="mt-auto space-y-4 pt-6 border-t border-white/5">
                                 <div>
-                                    <h4 className="text-xs uppercase tracking-wider font-bold text-white/40 mb-1">Problem Solved</h4>
+                                    <h4 className="text-[10px] uppercase tracking-widest font-bold text-white/30 mb-1">Target Problem</h4>
                                     <p className="text-sm text-secondary/80">{service.problem}</p>
                                 </div>
                                 <div>
-                                    <h4 className="text-xs uppercase tracking-wider font-bold text-white/40 mb-1">Business Impact</h4>
+                                    <h4 className="text-[10px] uppercase tracking-widest font-bold text-white/30 mb-1">Business Impact</h4>
                                     <p className="text-sm text-secondary/80">{service.impact}</p>
                                 </div>
                                 <div>
-                                    <h4 className="text-xs uppercase tracking-wider font-bold text-white/40 mb-1">Scalability</h4>
+                                    <h4 className="text-[10px] uppercase tracking-widest font-bold text-white/30 mb-1">Engineering Advantage</h4>
                                     <p className="text-sm text-secondary/80">{service.advantage}</p>
                                 </div>
                             </div>
